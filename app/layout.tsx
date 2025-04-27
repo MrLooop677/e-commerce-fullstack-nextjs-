@@ -3,6 +3,12 @@ import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "./_component/header";
 import Footer from "./_component/footer";
+import { ClerkProvider,  
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton, } from "@clerk/nextjs";
 
 
 const roboto = Roboto({
@@ -21,6 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
+
     <html lang="en" suppressHydrationWarning>
       <body
        className={roboto.className}
@@ -28,9 +36,14 @@ export default function RootLayout({
       >
         <Header/>
      
+            <SignedIn>
+              <UserButton />
+            </SignedIn> 
         {children}
         <Footer/>
       </body>
     </html>
+    </ClerkProvider>
+
   );
 }
