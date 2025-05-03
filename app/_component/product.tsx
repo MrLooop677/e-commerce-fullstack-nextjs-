@@ -11,7 +11,6 @@ export default async function ProductSection() {
   try {
     const response = await getLatestProducts();
     const productListItems: Product[] = response.data?.data;
-    
 
     return (
 
@@ -20,7 +19,8 @@ export default async function ProductSection() {
           <span className='font-normal text-[14px]
            float-right text-primary flex 
            items-center cursor-pointer hover:text-teal-600'>
-            View All Collection <ArrowRightCircle className='h-4' /> </span></h2>			        <ProductList productList={productListItems}/>
+            View All Collection <ArrowRightCircle className='h-4' /> </span></h2>			 
+                   <ProductList productList={productListItems}/>
 
               </div>
     );

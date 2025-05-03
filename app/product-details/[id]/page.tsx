@@ -8,7 +8,6 @@ import ProductInfo from '../_components/product-info';
 async function page({ params }: { params: { id: string } }) {
   const {id}=await params
 try {
-  await new Promise((resolve) => setTimeout(resolve, 10000));
   const productDetais=await getProductDetails(id)
   const semilarProduct=await filterProducts(productDetais?.data?.data?.category)
  
